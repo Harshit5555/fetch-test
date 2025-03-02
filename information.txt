@@ -1,0 +1,39 @@
+Project Information
+
+Overview
+
+I built this project as a native Android app using modern development practices with Jetpack Compose and Retrofit. The goal was to create a clean, maintainable, and scalable application that retrieves data from a remote API and displays it in an organized list.
+
+Initial Thoughts
+
+When I first received this assignment, my main objectives were:
+
+Clean Architecture: I wanted to ensure the project followed the separation of concerns principle by isolating data, network, and UI layers.
+Modern Android Development: I chose to use Jetpack Compose for UI development to leverage its declarative syntax and real-time previews, reducing boilerplate code compared to XML.
+Asynchronous Data Handling: I decided to use Retrofit combined with Kotlin coroutines for making network requests asynchronously, ensuring the UI remains smooth and responsive.
+Why I Chose This Approach
+
+Jetpack Compose vs. XML
+Declarative UI: With Compose, I can describe the UI as functions, which makes the code more concise and easier to understand. There's no need to manage XML inflation or use findViewById.
+Better State Management: Compose integrates seamlessly with state holders like StateFlow and LiveData, so UI updates occur automatically when data changes.
+Modern Tooling: Compose offers a live preview feature in Android Studio, which sped up my development process and allowed me to quickly iterate on the design.
+Retrofit and Coroutines for Networking
+Simplified Networking: Retrofit made it easy to define API endpoints using an interface, and it automatically creates the implementation. This abstraction simplifies network operations.
+Asynchronous Processing: By leveraging Kotlin coroutines, I was able to perform network operations off the main thread, ensuring that the UI remains responsive. The use of viewModelScope in the ViewModel kept the code clean and lifecycle-aware.
+JSON Parsing: Retrofit's integration with GsonConverterFactory allowed for seamless conversion of JSON responses into Kotlin data classes, which improved code readability and reduced the need for manual parsing.
+How I Structured the Project
+
+Model Package: Contains data classes (e.g., Item.kt) representing the structure of the data from the API.
+Network Package: Contains the API interface (ApiService.kt) and the Retrofit instance (RetrofitInstance.kt). This separation keeps the networking logic centralized and easy to modify.
+ViewModel Package: Contains the MainViewModel.kt that manages data fetching, filtering, and sorting. This ensures the UI remains decoupled from the business logic.
+UI Layer (Compose): I implemented the UI entirely in Kotlin using Jetpack Compose. The UI is structured using composables like Scaffold, TopAppBar, LazyColumn, and custom components (e.g., RewardItemCard) to present data clearly.
+Potential Improvements
+
+While I am pleased with the current implementation (no software developer is always pleased lol and we all know that), I believe the project could be further improved by:
+
+Enhanced Error Handling: Adding proper error messages and retry mechanisms in the ViewModel to handle API failures gracefully.
+Unit Testing: Implementing unit tests for the ViewModel and integration tests for the networking layer would improve the overall reliability of the app.
+More Customization in UI: Although the current UI meets the requirements, I could further enhance it by adding animations, better theming, and responsiveness to different device sizes.
+Dependency Injection: Utilizing a dependency injection framework (e.g., Hilt) could further decouple components, making the code more modular and testable.
+
+thank you for giving me this chanc
